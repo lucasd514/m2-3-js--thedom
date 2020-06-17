@@ -12,3 +12,12 @@ for (let i = 1; i <= FROGS; i++) {
 
   lane.id = "lane-" + i;
 }
+
+racers = [];
+
+for (let i = 1; i <= FROGS; i++) {
+  let newguy = frogStable[i];
+  racers.push(newguy);
+}
+
+console.log(racers);
