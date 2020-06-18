@@ -12,7 +12,7 @@ for (let i = 1; i <= FROGS; i++) {
 
   lane.id = "lane-" + i;
 }
-
+//2.2
 racers = [];
 
 for (let i = 1; i <= FROGS; i++) {
@@ -21,3 +21,13 @@ for (let i = 1; i <= FROGS; i++) {
 }
 
 console.log(racers);
+
+//2.3 I ran through the code but it doesnt seem to work.
+
+racers.forEach(function (racer, id) {
+  const newFriend = document.createElement("span");
+  newFriend.innerText = racer.number;
+  newFriend.classList.add("frog");
+  newFriend.style.background = racer.color;
+  document.getElementById(`frog-${id + 1}`).appendChild(newFriend);
+});
