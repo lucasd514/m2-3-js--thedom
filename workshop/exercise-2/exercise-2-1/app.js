@@ -1,33 +1,40 @@
 // Preset values
 const FROGS = 3;
-const container = document.querySelector("main");
-
-// 1. Create for loop that makes use of FROGS to know how many lanes to create.
+const listBox = document.querySelector("#track");
+//2.1
 for (let i = 1; i <= FROGS; i++) {
-  const lane = document.createElement("li");
-  const space = document.createElement("span");
-  space.innerText = "Lane" + i;
-  container.appendChild(lane);
-  lane.appendChild(space);
+  let listItem = document.createElement("li");
+  listBox.appendChild(listItem);
 
-  lane.id = "lane-" + i;
+  let spanNo = document.createElement("span");
+  spanNo.innerText = i;
+  spanNo.id = "lane-" + i;
+  listItem.appendChild(spanNo);
 }
 //2.2
-racers = [];
+let racers = [];
 
-for (let i = 1; i <= FROGS; i++) {
-  let newguy = frogStable[i];
-  racers.push(newguy);
+for (let n = 0; n < FROGS; n++) {
+  const froggy = frogStable[n];
+  racers.push(froggy);
 }
 
 console.log(racers);
-
-//2.3 I ran through the code but it doesnt seem to work.
+/// Exercise 2.3
 
 racers.forEach(function (racer, id) {
-  const newFriend = document.createElement("span");
-  newFriend.innerText = racer.number;
-  newFriend.classList.add("frog");
-  newFriend.style.background = racer.color;
-  document.getElementById(`frog-${id + 1}`).appendChild(newFriend);
+  // add the frogs to a lane
+  // for now, frogs are simply shapes in the lane.
+  const newFrog = document.createElement("span");
+  newFrog.innerText = racer.number;
+  newFrog.classList.add("frog");
+  newFrog.style.background = racer.color;
+  document.getElementById("lane-" + (id + 1)).appendChild(newFrog);
+
+  racers[id].progress = 0;
+  racers[id].lane = "lane-" + (id + 1);
+
+  const frogProgress = document.createElement("span");
+  frogProgress.id = racers[id].name;
+  document.getElementById("lane-" + (id + 1)).appendChild(frogProgress);
 });
